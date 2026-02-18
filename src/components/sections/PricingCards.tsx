@@ -19,7 +19,7 @@ export default function PricingCards() {
       <Container>
         <SectionHeading
           title="Simple, Transparent Pricing"
-          subtitle="Start with a free trial, scale as you grow."
+          subtitle="Start with a free trial, pay for full access."
         />
 
         {/* Toggle */}
@@ -94,12 +94,7 @@ export default function PricingCards() {
           </div>
 
           {/* Pro */}
-          <div className="relative flex flex-col rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent-secondary/5 p-8 shadow-[0_0_50px_rgba(124,58,237,0.2)]">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-              <span className="rounded-full bg-gradient-to-r from-accent-light to-accent-secondary px-4 py-1 text-xs font-semibold text-white shadow-lg">
-                Most Popular
-              </span>
-            </div>
+          <div className="flex flex-col rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent-secondary/5 p-8 shadow-[0_0_50px_rgba(124,58,237,0.2)]">
             <h3 className="text-lg font-semibold text-white">Pro</h3>
             <div className="mt-5">
               <span className="text-5xl font-bold text-white">
@@ -113,7 +108,7 @@ export default function PricingCards() {
                 <span className="line-through opacity-50">
                   {PRICING.currency}{monthlyPrice}
                 </span>{" "}
-                — billed annually
+                — Pay less with annual commitment
               </p>
             ) : (
               <p className="mt-2 text-sm text-foreground/60">
