@@ -14,23 +14,23 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
+    <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-background/70 backdrop-blur-xl">
       <Container>
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-white">
+          <Link href="/" className="text-xl font-bold tracking-tight text-white">
             <span className="gradient-text">{SITE_NAME}</span>
           </Link>
 
-          {/* Desktop links */}
-          <div className="hidden items-center gap-8 md:flex">
+          {/* Desktop links — absolutely centered relative to full navbar width */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm transition-colors hover:text-white",
-                  pathname === link.href ? "text-white" : "text-foreground"
+                  "text-sm font-medium transition-colors hover:text-white",
+                  pathname === link.href ? "text-white" : "text-foreground/70"
                 )}
               >
                 {link.label}
@@ -39,19 +39,16 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTAs */}
-          <div className="hidden items-center gap-4 md:flex">
-            <Link
-              href="/sign-in"
-              className="text-sm text-foreground transition-colors hover:text-white"
-            >
+          <div className="hidden items-center gap-3 md:flex">
+            <Button href="/sign-in" variant="secondary" size="sm">
               Sign In
-            </Link>
-            <Button href="/pricing" size="sm">
-              Start Free Trial
+            </Button>
+            <Button href="/contact" size="sm">
+              Request a Demo
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile button */}
           <button
             className="md:hidden text-white cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -64,16 +61,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-white/5 bg-background/95 backdrop-blur-md md:hidden">
-          <Container className="py-4">
+        <div className="border-t border-white/5 bg-background/95 backdrop-blur-xl md:hidden">
+          <Container className="py-5">
             <div className="flex flex-col gap-4">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-sm transition-colors hover:text-white",
-                    pathname === link.href ? "text-white" : "text-foreground"
+                    "text-sm font-medium transition-colors hover:text-white",
+                    pathname === link.href ? "text-white" : "text-foreground/70"
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -81,15 +78,11 @@ export default function Navbar() {
                 </Link>
               ))}
               <hr className="border-white/10" />
-              <Link
-                href="/sign-in"
-                className="text-sm text-foreground hover:text-white"
-                onClick={() => setMobileOpen(false)}
-              >
+              <Button href="/sign-in" variant="secondary" size="sm" className="w-full">
                 Sign In
-              </Link>
-              <Button href="/pricing" size="sm" className="w-full">
-                Start Free Trial
+              </Button>
+              <Button href="/contact" size="sm" className="w-full">
+                Request a Demo
               </Button>
             </div>
           </Container>

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 import { FEATURES } from "@/lib/constants";
 
 const featureImages = [
@@ -23,13 +22,7 @@ export default function FeatureShowcase() {
   return (
     <section className="py-16 md:py-24">
       <Container>
-        <SectionHeading
-          badge="Features"
-          title="Built for Every Role"
-          subtitle="From the CISO to the newest employee, CyberEscape gives everyone the tools they need."
-        />
-
-        <div className="mt-16 space-y-24">
+        <div className="mt-0 space-y-24">
           {FEATURES.map((feature, i) => (
             <div
               key={feature.title}

@@ -30,20 +30,20 @@ export default function ValueProps() {
           subtitle="Built from the ground up to drive engagement, measure outcomes, and scale across your organization."
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {VALUE_PROPS.map((prop) => {
             const Icon = iconMap[prop.icon];
             return (
               <Card key={prop.title}>
                 {Icon && (
-                  <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
+                  <div className="mb-4 inline-flex rounded-xl bg-gradient-to-br from-accent/20 to-accent-secondary/10 p-3">
                     <Icon className="h-6 w-6 text-accent-light" />
                   </div>
                 )}
                 <h3 className="mb-2 text-lg font-semibold text-white">
                   {prop.title}
                 </h3>
-                <p className="text-sm text-foreground">{prop.description}</p>
+                <p className="text-sm text-foreground/70">{prop.description}</p>
               </Card>
             );
           })}

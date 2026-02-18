@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Check } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { PRICING, PRICING_FEATURES } from "@/lib/constants";
@@ -27,8 +26,8 @@ export default function PricingCards() {
         <div className="mt-10 flex items-center justify-center gap-4">
           <span
             className={cn(
-              "text-sm font-medium",
-              !annual ? "text-white" : "text-foreground"
+              "text-sm font-medium transition-colors",
+              !annual ? "text-white" : "text-foreground/50"
             )}
           >
             Monthly
@@ -37,103 +36,102 @@ export default function PricingCards() {
             onClick={() => setAnnual(!annual)}
             className={cn(
               "relative inline-flex h-7 w-12 items-center rounded-full transition-colors cursor-pointer",
-              annual ? "bg-accent" : "bg-surface-light"
+              annual
+                ? "bg-gradient-to-r from-accent to-accent-secondary"
+                : "bg-surface-light"
             )}
             aria-label="Toggle annual pricing"
           >
             <span
               className={cn(
-                "inline-block h-5 w-5 rounded-full bg-white transition-transform",
+                "inline-block h-5 w-5 rounded-full bg-white transition-transform shadow-sm",
                 annual ? "translate-x-6" : "translate-x-1"
               )}
             />
           </button>
           <span
             className={cn(
-              "text-sm font-medium",
-              annual ? "text-white" : "text-foreground"
+              "text-sm font-medium transition-colors",
+              annual ? "text-white" : "text-foreground/50"
             )}
           >
             Annual{" "}
-            <span className="rounded-full bg-accent/10 px-2 py-0.5 text-xs text-accent-light">
+            <span className="rounded-full bg-accent-secondary/15 px-2 py-0.5 text-xs text-accent-secondary-light">
               Save 20%
             </span>
           </span>
         </div>
 
         {/* Cards */}
-        <div className="mx-auto mt-12 grid max-w-4xl gap-8 lg:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">
           {/* Free Trial */}
-          <Card hover={false} className="flex flex-col">
+          <div className="flex flex-col rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
             <h3 className="text-lg font-semibold text-white">Free Trial</h3>
-            <div className="mt-4">
-              <span className="text-4xl font-bold text-white">
+            <div className="mt-5">
+              <span className="text-5xl font-bold text-white">
                 {PRICING.currency}0
               </span>
-              <span className="ml-2 text-foreground">
+              <span className="ml-2 text-foreground/60">
                 / {PRICING.trialDays} days
               </span>
             </div>
-            <p className="mt-2 text-sm text-foreground">
-              Up to {PRICING.trialUsers} users. No credit card required.
+            <p className="mt-2 text-sm text-foreground/60">
+              Up to {PRICING.trialUsers} users · No credit card required
             </p>
-            <ul className="mt-6 flex-1 space-y-3">
+            <ul className="mt-8 flex-1 space-y-3.5">
               {PRICING_FEATURES.trial.map((feature) => (
                 <li key={feature} className="flex items-center gap-3">
-                  <Check className="h-4 w-4 shrink-0 text-accent" />
-                  <span className="text-sm text-foreground">{feature}</span>
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/20">
+                    <Check className="h-3 w-3 text-accent-light" />
+                  </div>
+                  <span className="text-sm text-foreground/80">{feature}</span>
                 </li>
               ))}
             </ul>
-            <Button
-              href="/contact"
-              variant="secondary"
-              className="mt-8 w-full"
-            >
+            <Button href="/contact" variant="secondary" className="mt-8 w-full">
               Start Free Trial
             </Button>
-          </Card>
+          </div>
 
           {/* Pro */}
-          <Card
-            hover={false}
-            className="relative flex flex-col border-accent/30 shadow-[0_0_40px_rgba(6,182,212,0.1)]"
-          >
-            <div className="absolute -top-3 right-6">
-              <span className="rounded-full bg-gradient-to-r from-accent-light to-accent-secondary px-3 py-1 text-xs font-medium text-white">
+          <div className="relative flex flex-col rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent-secondary/5 p-8 shadow-[0_0_50px_rgba(124,58,237,0.2)]">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span className="rounded-full bg-gradient-to-r from-accent-light to-accent-secondary px-4 py-1 text-xs font-semibold text-white shadow-lg">
                 Most Popular
               </span>
             </div>
             <h3 className="text-lg font-semibold text-white">Pro</h3>
-            <div className="mt-4">
-              <span className="text-4xl font-bold text-white">
+            <div className="mt-5">
+              <span className="text-5xl font-bold text-white">
                 {PRICING.currency}
                 {annual ? annualPrice : monthlyPrice}
               </span>
-              <span className="ml-2 text-foreground">/ user / month</span>
+              <span className="ml-2 text-foreground/60">/ user / month</span>
             </div>
-            {annual && (
-              <p className="mt-1 text-sm text-foreground">
-                <span className="line-through">
-                  {PRICING.currency}
-                  {monthlyPrice}
+            {annual ? (
+              <p className="mt-2 text-sm text-foreground/60">
+                <span className="line-through opacity-50">
+                  {PRICING.currency}{monthlyPrice}
                 </span>{" "}
                 — billed annually
               </p>
+            ) : (
+              <p className="mt-2 text-sm text-foreground/60">
+                Unlimited users · Full platform
+              </p>
             )}
-            <p className="mt-2 text-sm text-foreground">
-              Unlimited users. Full platform.
-            </p>
-            <ul className="mt-6 flex-1 space-y-3">
+            <ul className="mt-8 flex-1 space-y-3.5">
               {PRICING_FEATURES.pro.map((feature) => (
                 <li key={feature} className="flex items-center gap-3">
-                  <Check className="h-4 w-4 shrink-0 text-accent" />
-                  <span className="text-sm text-foreground">{feature}</span>
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-secondary/20">
+                    <Check className="h-3 w-3 text-accent-secondary-light" />
+                  </div>
+                  <span className="text-sm text-foreground/80">{feature}</span>
                 </li>
               ))}
             </ul>
             <Button className="mt-8 w-full">Get Started</Button>
-          </Card>
+          </div>
         </div>
       </Container>
     </section>

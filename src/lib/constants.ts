@@ -4,10 +4,10 @@ export const SITE_NAME = "CyberEscape";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
+  { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const VALUE_PROPS: ValueProp[] = [
@@ -79,12 +79,12 @@ export const FEATURES: Feature[] = [
   {
     title: "For Employees",
     description:
-      "Security training that feels like a game — because it is one.",
+      "Participate in gamified challenges that make security knowledge second nature.",
     items: [
-      "Timed escape-room challenges with escalating difficulty",
-      "Built-in voice and chat for team coordination",
-      "Progressive campaigns that build skills from fundamentals to advanced",
+      "Access a wide variety of themed, hands-on gamemodes",
       "Educational debriefs explaining real-world security principles",
+      "Progressive campaigns that build skills from fundamentals to advanced",
+      "Built-in voice and chat for team coordination",
       "Solo practice mode available anytime",
       "Real-time notifications for invites, unlocks, and results",
     ],
@@ -126,15 +126,19 @@ export const ANALYTICS_CAPABILITIES = [
 
 export const CASE_STUDY = {
   company: "TechBridge Solutions",
-  description: "A 120-person financial services firm",
+  description: "How a financial services firm turned compliance dread into measurable security culture in 12 months.",
   problem:
-    "Annual compliance training that employees dreaded, clicked through as fast as possible, and forgot within days. Phishing simulation click rates sitting at around 34%.",
+    "TechBridge's annual cybersecurity compliance training was dreaded, clicked through, and forgotten. Phishing click rates sat at 34%, well above industry benchmarks.",
+  solution:
+    "They replaced their legacy LMS with short 3-5 minute scenario-based challenges, leaderboards, team competitions, and a points system with real incentives, delivered monthly instead of annually.",
+  results:
+    "After 12 months, phishing click rates fell to 8%, completion jumped from 55% to 94%, and incident reporting increased by 60% as employees engaged voluntarily rather than just meeting a deadline.",
   stats: [
     { label: "Phishing Click Rate", before: "34%", after: "8%", description: "reduction" },
     { label: "Incident Reporting", value: "60%", description: "increase" },
     { label: "Training Completion", before: "55%", after: "94%", description: "improvement" },
   ],
-  quote:
+  closing:
     "The CISO was able to demonstrate measurable cultural change to the board, which helped secure budget for broader security investment the following year.",
 };
 

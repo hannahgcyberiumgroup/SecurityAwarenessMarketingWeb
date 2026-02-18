@@ -15,15 +15,15 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-surface">
+    <footer className="border-t border-white/5 bg-surface/60 backdrop-blur-sm">
       <Container className="py-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="text-xl font-bold text-white">
+            <Link href="/" className="text-xl font-bold tracking-tight text-white">
               <span className="gradient-text">{SITE_NAME}</span>
             </Link>
-            <p className="mt-3 max-w-sm text-sm text-foreground">
+            <p className="mt-3 max-w-sm text-sm text-foreground/70">
               Enterprise cybersecurity awareness training that employees actually
               want to complete. Gamified. Measurable. Effective.
             </p>
@@ -38,7 +38,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-foreground transition-colors hover:text-white"
+                      className="text-sm text-foreground/60 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-6 text-center text-sm text-foreground">
+        <div className="mt-12 border-t border-white/5 pt-6 text-center text-sm text-foreground/40">
           &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
         </div>
       </Container>

@@ -12,8 +12,9 @@ export default function Card({
   return (
     <div
       className={cn(
-        "rounded-xl border border-white/10 bg-surface p-6",
-        hover && "transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]",
+        "rounded-2xl border border-white/10 bg-surface-light p-6",
+        hover &&
+          "transition-colors duration-300 hover:border-accent/40 hover:bg-surface hover:shadow-[0_0_30px_rgba(124,58,237,0.15)]",
         className
       )}
     >
