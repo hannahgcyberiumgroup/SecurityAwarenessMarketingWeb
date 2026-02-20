@@ -1,10 +1,10 @@
-import type { NavLink, ValueProp, FAQItem, Feature } from "@/types";
+import type { NavLink, ValueProp, FAQItem, Feature, RoleBenefit } from "@/types";
 
 export const SITE_NAME = "CyberEscape";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Features", href: "/features" },
+  { label: "Benefits", href: "/benefits" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
@@ -18,10 +18,12 @@ export const VALUE_PROPS: ValueProp[] = [
       "Escape-room gameplay replaces click-through slideshows. Employees actually want to play.",
   },
   {
+    
     icon: "BarChart3",
-    title: "Measurable Resilience",
+    title: "Measurable Resilience Score",
     description:
       "6-domain security resilience score per employee, team, and org. Track improvement over time.",
+    href: "/benefits#resilience-score",
   },
   {
     icon: "Users",
@@ -228,5 +230,108 @@ export const FAQ_ITEMS: FAQItem[] = [
     answer:
       "The platform is designed as a standalone SaaS solution with enterprise SSO support. Contact us to discuss specific integration requirements for your organization.",
     category: "technical",
+  },
+];
+
+export const ROLE_BENEFITS: RoleBenefit[] = [
+  {
+    id: "ciso",
+    title: "CISO",
+    icon: "Shield",
+    bullets: [
+      "Org-wide resilience scores across 6 security domains",
+      "Identify high-risk employees before incidents happen",
+      "Report measurable security culture change to the board",
+    ],
+    headline: "Strategic visibility into your organisation's security posture",
+    description:
+      "Give security leadership the data needed to make decisions, justify budget, and demonstrate progress over time.",
+    items: [
+      "Resilience Score Dashboard aggregated across 6 domains: Identity, Social Engineering, Data Protection, Network Defense, Threat Hunting, and Incident Response",
+      "Risk heatmap showing group-by-domain breakdowns at a glance",
+      "Watchlist automatically flags high-risk employees and surfaces remediation recommendations",
+      "Engagement analytics proving training ROI for board and budget presentations",
+      "Compliance-ready audit logs with 7-year retention",
+      "On-demand CSV and PDF reports covering sessions, campaigns, and resilience score trends",
+    ],
+    image: {
+      src: "/images/seca-resilience-analytics.png",
+      alt: "CyberEscape Resilience Analytics dashboard showing org health and domain averages",
+    },
+  },
+  {
+    id: "grc-manager",
+    title: "GRC Manager",
+    icon: "ClipboardCheck",
+    bullets: [
+      "Audit-ready logs with 7-year retention",
+      "GDPR data export and right-to-erasure built in",
+      "Track compliance coverage across every team",
+    ],
+    headline: "Compliance coverage you can prove, not just claim",
+    description:
+      "Built for regulated industries from day one, with the audit trail and controls to back it up.",
+    items: [
+      "Immutable append-only audit logs covering all user and admin activity",
+      "7-year log retention to meet regulatory requirements",
+      "GDPR Article 15 data export and right-to-erasure support",
+      "Role-based access control for secure admin delegation",
+      "Audit Extract and GDPR Export reports generated on demand",
+      "Training completion tracking per user, team, and campaign for compliance reporting",
+    ],
+    image: {
+      src: "/images/seca-user-management.png",
+      alt: "CyberEscape user management interface showing roles, status, and admin controls",
+    },
+  },
+  {
+    id: "training-manager",
+    title: "HR / Training Manager",
+    icon: "Users",
+    bullets: [
+      "Replace annual slideshows with short monthly challenges",
+      "Build progressive campaigns that unlock automatically",
+      "Monitor live sessions and export results on demand",
+    ],
+    headline: "Training programmes that actually get completed",
+    description:
+      "Tools to design, schedule, and track security training at scale, without chasing employees to finish.",
+    items: [
+      "Campaign builder for multi-step training paths that unlock automatically on completion",
+      "Create facilitated team sessions, solo practice, or peer group sessions from one dashboard",
+      "Real-time monitoring with live telemetry during active sessions",
+      "Visual content editor with a draft-to-publish workflow for managing training content",
+      "One-click email invitations with delivery tracking per session",
+      "Exportable session summaries and campaign progress reports",
+    ],
+    image: {
+      src: "/images/seca-gamemodes.png",
+      alt: "CyberEscape games browser showing available training scenarios",
+    },
+  },
+  {
+    id: "employee",
+    title: "Employee",
+    icon: "Gamepad2",
+    bullets: [
+      "Short escape-room challenges instead of hour-long slideshows",
+      "Compete with teammates and climb the leaderboard",
+      "Practice anytime with solo gamemodes",
+    ],
+    headline: "Security training that feels nothing like training",
+    description:
+      "Escape-room challenges that make security knowledge second nature.",
+    items: [
+      "Access a wide variety of themed, hands-on game modes",
+      "Earn points, build streaks, and compete on leaderboards",
+      "Built-in voice and chat for team coordination during gameplay",
+      "Progressive campaigns that build skills from fundamentals to advanced scenarios",
+      "Educational debriefs after every challenge explaining real-world security principles",
+      "Solo practice mode available anytime without a facilitator",
+    ],
+    image: {
+      src: "/images/seca-resilience_score.png",
+      alt: "CyberEscape My Resilience Score dashboard showing personal domain scores and score history",
+    },
   },
 ];

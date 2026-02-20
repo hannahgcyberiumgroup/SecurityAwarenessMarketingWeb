@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Transform security awareness with gamified escape-room training. Measurable resilience scoring, real-time collaboration, and enterprise-grade analytics.",
+    "Transform security awareness with gamified escape-room training. Measurable resilience score, real-time collaboration, and enterprise-grade analytics.",
 };
 
 export default function RootLayout({

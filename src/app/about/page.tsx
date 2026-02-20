@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Gamepad2, BarChart3, Building2, User } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -8,10 +9,10 @@ import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Learn about ${SITE_NAME} — our mission to transform cybersecurity awareness training through gamification and measurable outcomes.`,
+  description: `Learn about ${SITE_NAME} — our vision for a world where people are the first line of defence and security training works alongside the tools organisations already rely on.`,
 };
 
-const pillars = [
+const pillars: { icon: React.ComponentType<{ className?: string }>; title: string; description: React.ReactNode }[] = [
   {
     icon: Gamepad2,
     title: "Engagement First",
@@ -21,8 +22,19 @@ const pillars = [
   {
     icon: BarChart3,
     title: "Measurable Outcomes",
-    description:
-      "Every interaction generates data. Our 6-domain resilience scoring gives security leaders the metrics they need to prove ROI, identify risks, and drive continuous improvement.",
+    description: (
+      <>
+        Every interaction generates data. Our{" "}
+        <Link
+          href="/benefits#resilience-score"
+          className="text-accent-light hover:text-white transition-colors underline underline-offset-2"
+        >
+          6-domain resilience score
+        </Link>{" "}
+        gives security leaders the metrics they need to prove ROI, identify
+        risks, and drive continuous improvement.
+      </>
+    ),
   },
   {
     icon: Building2,
@@ -32,35 +44,40 @@ const pillars = [
   },
 ];
 
-const teamPlaceholders = [
-  { name: "Team Member", role: "Co-Founder & CEO" },
-  { name: "Team Member", role: "Co-Founder & CTO" },
-  { name: "Team Member", role: "Head of Product" },
-  { name: "Team Member", role: "Head of Security" },
+const advisors = [
+  { name: "Advisor Name", role: "Cybersecurity Advisor" },
+  { name: "Advisor Name", role: "Enterprise Strategy Advisor" },
+  { name: "Advisor Name", role: "Compliance & Regulatory Advisor" },
+  { name: "Advisor Name", role: "Learning & Development Advisor" },
+  { name: "Advisor Name", role: "Go-to-Market Advisor" },
+  { name: "Advisor Name", role: "Product Advisor" },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Mission */}
+      {/* Vision */}
       <section className="py-16 md:py-24">
         <Container>
           <SectionHeading
-            badge="Our Mission"
-            title="Building the Future of Security Awareness"
+            badge="Our Vision"
+            title="People Are the First Line of Defence"
           />
-          <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center text-foreground">
+          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-center text-foreground">
             <p>
-              Traditional security awareness training is broken. Employees dread
-              it, click through as fast as possible, and forget everything within
-              days. Meanwhile, threat actors get more sophisticated every year.
+              Firewalls, endpoint tools, and SIEMs form the technical backbone of any security
+              programme. But behind every phishing click, misconfigured file share, or accidental
+              data leak is a person making a decision. Technology cannot fully compensate for
+              uninformed or unprepared people. The most scalable investment an organisation can make
+              is turning its workforce into a knowledgeable, alert, and resilient first line of
+              defence.
             </p>
             <p>
-              {SITE_NAME} was founded on a simple insight: people learn better
-              when they&apos;re engaged. By replacing passive slideshows with
-              collaborative escape-room challenges, we&apos;ve created training
-              that employees actually want to complete — and that produces
-              measurable security outcomes.
+              {SITE_NAME} is not a replacement for compliance training or your existing security
+              stack. It is the behavioural layer that sits alongside them. Whether your team already
+              uses a phishing simulator, an LMS, or a SIEM, {SITE_NAME} adds what those tools
+              cannot: hands-on practice, measurable resilience, and a training experience employees
+              actually engage with.
             </p>
           </div>
         </Container>
@@ -86,21 +103,23 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Team */}
+      {/* Advisory Board */}
       <section className="py-16 md:py-24">
         <Container>
           <SectionHeading
-            title="Meet the Team"
-            subtitle="The people behind CyberEscape."
+            title="Advisory Board"
+            subtitle="Experienced voices guiding our product, strategy, and growth."
           />
-          <div className="mx-auto mt-12 grid max-w-3xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {teamPlaceholders.map((member, i) => (
-              <div key={i} className="text-center">
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-2 border-dashed border-white/10 bg-surface">
-                  <User className="h-10 w-10 text-white/20" />
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {advisors.map((advisor, i) => (
+              <div key={i} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface-light p-5">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-white/10 bg-surface">
+                  <User className="h-7 w-7 text-white/20" />
                 </div>
-                <p className="mt-4 font-medium text-white">{member.name}</p>
-                <p className="text-sm text-foreground">{member.role}</p>
+                <div>
+                  <p className="font-medium text-white">{advisor.name}</p>
+                  <p className="text-sm text-foreground/60">{advisor.role}</p>
+                </div>
               </div>
             ))}
           </div>

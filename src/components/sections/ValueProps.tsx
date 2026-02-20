@@ -6,6 +6,7 @@ import {
   Target,
   Route,
 } from "lucide-react";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -44,6 +45,14 @@ export default function ValueProps() {
                   {prop.title}
                 </h3>
                 <p className="text-sm text-foreground/70">{prop.description}</p>
+                {prop.href && (
+                  <Link
+                    href={prop.href}
+                    className="mt-3 inline-block text-xs font-medium text-accent-light hover:text-white transition-colors"
+                  >
+                    Learn more →
+                  </Link>
+                )}
               </Card>
             );
           })}

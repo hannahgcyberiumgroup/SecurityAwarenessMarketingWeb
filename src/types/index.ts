@@ -2,6 +2,7 @@ export interface ValueProp {
   icon: string;
   title: string;
   description: string;
+  href?: string;
 }
 
 export interface FAQItem {
@@ -19,4 +20,15 @@ export interface Feature {
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface RoleBenefit {
+  id: string;
+  title: string;
+  icon: string;
+  bullets: [string, string, string];
+  headline: string;
+  description: string;
+  items: string[];
+  image: { src: string; alt: string };
 }
