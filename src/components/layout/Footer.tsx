@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import BackToTop from "@/components/ui/BackToTop";
 import { SITE_NAME } from "@/lib/constants";
 
 const footerLinks = {
@@ -49,8 +50,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-6 text-center text-sm text-foreground/40">
-          &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+        <div className="mt-12 border-t border-white/5 pt-6 flex items-center justify-between text-sm text-foreground/40">
+          <span>&copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</span>
+          <BackToTop />
         </div>
       </Container>
     </footer>

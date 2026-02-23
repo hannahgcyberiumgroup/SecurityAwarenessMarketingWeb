@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { PRICING, PRICING_FEATURES } from "@/lib/constants";
+import { PRICING, PRICING_FEATURES, PRICING_SECTION } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export default function PricingCards() {
@@ -18,8 +18,8 @@ export default function PricingCards() {
     <section className="py-16 md:py-24">
       <Container>
         <SectionHeading
-          title="Simple, Transparent Pricing"
-          subtitle="Start with a free trial, pay for full access."
+          title={PRICING_SECTION.title}
+          subtitle={PRICING_SECTION.subtitle}
         />
 
         {/* Toggle */}

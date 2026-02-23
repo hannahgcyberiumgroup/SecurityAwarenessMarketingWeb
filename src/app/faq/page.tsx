@@ -3,7 +3,7 @@ import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Accordion from "@/components/ui/Accordion";
 import CTABanner from "@/components/sections/CTABanner";
-import { FAQ_ITEMS } from "@/lib/constants";
+import { FAQ_PAGE, FAQ_ITEMS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -11,25 +11,18 @@ export const metadata: Metadata = {
     "Frequently asked questions about CyberEscape — pricing, security, compliance, and technical requirements.",
 };
 
-const categories = [
-  { key: "general" as const, label: "General" },
-  { key: "pricing" as const, label: "Pricing" },
-  { key: "security" as const, label: "Security & Compliance" },
-  { key: "technical" as const, label: "Technical" },
-];
-
 export default function FAQPage() {
   return (
     <>
       <section className="py-16 md:py-24">
         <Container>
           <SectionHeading
-            title="Frequently Asked Questions"
-            subtitle="Everything you need to know about CyberEscape."
+            title={FAQ_PAGE.title}
+            subtitle={FAQ_PAGE.subtitle}
           />
 
           <div className="mx-auto mt-12 max-w-3xl">
-            {categories.map((category) => {
+            {FAQ_PAGE.categories.map((category) => {
               const items = FAQ_ITEMS.filter(
                 (item) => item.category === category.key
               );

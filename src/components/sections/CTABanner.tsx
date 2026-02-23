@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import { CTA_BANNER } from "@/lib/constants";
 
 export default function CTABanner() {
   return (
@@ -13,11 +14,10 @@ export default function CTABanner() {
 
       <Container className="relative text-center">
         <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-          Ready to Transform Your Security Training?
+          {CTA_BANNER.heading}
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
-          Join organizations that have turned compliance into culture with
-          gamified security awareness training.
+          {CTA_BANNER.subtext}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/pricing" size="lg">

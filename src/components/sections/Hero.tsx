@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import { HERO, APP_URL } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -15,33 +16,32 @@ export default function Hero() {
 
       <Container className="relative">
         <div className="mx-auto max-w-4xl text-center">
-          <Badge>CyberEscape</Badge>
+          <Badge>{HERO.badge}</Badge>
 
           <h1 className="mt-6 text-5xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05]">
-            Level up your defense.{" "}
-            <span className="gradient-text">One game at a time.</span>
+            {HERO.heading}{" "}
+            <span className="gradient-text">{HERO.headingAccent}</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">
-            A fresh approach that transforms security awareness into a fun,
-            competitive experience your team actually wants to play.
+            {HERO.subheading}
           </p>
 
           <p className="mt-8 text-base font-semibold gradient-text">
-            Try for free today
+            {HERO.ctaLabel}
           </p>
 
           <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href="/contact" size="lg">
               Request a Demo
             </Button>
-            <Button href="/sign-in" variant="secondary" size="lg">
+            <Button href={APP_URL} variant="secondary" size="lg">
               Sign In
             </Button>
           </div>
 
           <p className="mt-4 text-sm text-foreground/40">
-            14-day free trial
+            {HERO.trialNote}
           </p>
         </div>
       </Container>

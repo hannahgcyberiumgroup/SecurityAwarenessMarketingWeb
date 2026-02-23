@@ -5,45 +5,21 @@ import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import RoleCards from "@/components/sections/RoleCards";
 import CTABanner from "@/components/sections/CTABanner";
-import { ROLE_BENEFITS } from "@/lib/constants";
-
-const RESILIENCE_DOMAINS = [
-  {
-    icon: Shield,
-    name: "Identity Security",
-    description: "Password hygiene, MFA usage, and account protection habits.",
-  },
-  {
-    icon: Brain,
-    name: "Social Engineering",
-    description: "Phishing recognition, pretexting awareness, and manipulation resistance.",
-  },
-  {
-    icon: Lock,
-    name: "Data Protection",
-    description: "Handling sensitive data, classification, and safe sharing practices.",
-  },
-  {
-    icon: Wifi,
-    name: "Network Defense",
-    description: "Safe browsing, VPN usage, and recognising network-based threats.",
-  },
-  {
-    icon: Search,
-    name: "Threat Hunting",
-    description: "Spotting indicators of compromise and reporting suspicious activity.",
-  },
-  {
-    icon: AlertCircle,
-    name: "Incident Response",
-    description: "Knowing when and how to escalate, contain, and report security incidents.",
-  },
-];
+import { BENEFITS_PAGE, RESILIENCE_DOMAINS, ROLE_BENEFITS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Benefits",
   description:
     "See how CyberEscape delivers measurable value for CISOs, GRC managers, training teams, and employees.",
+};
+
+const domainIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Shield,
+  Brain,
+  Lock,
+  Wifi,
+  Search,
+  AlertCircle,
 };
 
 export default function BenefitsPage() {
@@ -58,9 +34,9 @@ export default function BenefitsPage() {
         <div className="dot-grid absolute inset-0" />
         <Container className="relative">
           <SectionHeading
-            badge="Benefits"
-            title="Built for Every Role"
-            subtitle="From the CISO setting strategy to the employee playing their first game."
+            badge={BENEFITS_PAGE.header.badge}
+            title={BENEFITS_PAGE.header.title}
+            subtitle={BENEFITS_PAGE.header.subtitle}
           />
         </Container>
       </section>
@@ -127,33 +103,31 @@ export default function BenefitsPage() {
         <div className="dot-grid absolute inset-0" />
         <Container className="relative">
           <SectionHeading
-            badge="Resilience Score"
-            title="What is Resilience Score?"
-            subtitle="A single, trackable number that reflects how well each employee, team, and organisation understands and applies cybersecurity principles."
+            badge={BENEFITS_PAGE.resilienceScore.badge}
+            title={BENEFITS_PAGE.resilienceScore.title}
+            subtitle={BENEFITS_PAGE.resilienceScore.subtitle}
           />
 
           <div className="mx-auto mt-8 max-w-3xl text-center text-foreground/80">
-            <p>
-              After every training challenge, CyberEscape analyses performance across six security
-              domains and updates each participant&apos;s resilience score. Scores roll up to team
-              and org level, giving leaders an accurate, real-time picture of security posture — not
-              just completion rates.
-            </p>
+            <p>{BENEFITS_PAGE.resilienceScore.explanation}</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {RESILIENCE_DOMAINS.map((domain) => (
-              <div
-                key={domain.name}
-                className="rounded-2xl border border-white/10 bg-surface-light p-6"
-              >
-                <div className="mb-4 inline-flex rounded-xl bg-gradient-to-br from-accent/20 to-accent-secondary/10 p-3">
-                  <domain.icon className="h-5 w-5 text-accent-light" />
+            {RESILIENCE_DOMAINS.map((domain) => {
+              const Icon = domainIconMap[domain.icon];
+              return (
+                <div
+                  key={domain.name}
+                  className="rounded-2xl border border-white/10 bg-surface-light p-6"
+                >
+                  <div className="mb-4 inline-flex rounded-xl bg-gradient-to-br from-accent/20 to-accent-secondary/10 p-3">
+                    {Icon && <Icon className="h-5 w-5 text-accent-light" />}
+                  </div>
+                  <h3 className="font-semibold text-white">{domain.name}</h3>
+                  <p className="mt-2 text-sm text-foreground/70">{domain.description}</p>
                 </div>
-                <h3 className="font-semibold text-white">{domain.name}</h3>
-                <p className="mt-2 text-sm text-foreground/70">{domain.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>

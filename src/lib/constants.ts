@@ -1,6 +1,11 @@
-import type { NavLink, ValueProp, FAQItem, Feature, RoleBenefit } from "@/types";
+import type { NavLink, ValueProp, FAQItem, RoleBenefit, Pillar, ResilienceDomain, ContactItem } from "@/types";
+
+// ─── Shared / Global ─────────────────────────────────────────────────────────
 
 export const SITE_NAME = "CyberEscape";
+
+/** URL of the live SaaS application — update this when the app is deployed */
+export const APP_URL = "https://app.cyberescape.io";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
@@ -10,6 +15,25 @@ export const NAV_LINKS: NavLink[] = [
   { label: "FAQ", href: "/faq" },
 ];
 
+/** Appears at the bottom of every page */
+export const CTA_BANNER = {
+  heading: "Ready to Transform Your Security Training?",
+  subtext:
+    "Join organizations that have turned compliance into culture with gamified security awareness training.",
+};
+
+// ─── Home ─────────────────────────────────────────────────────────────────────
+
+export const HERO = {
+  badge: "CyberEscape",
+  heading: "Level up your defense.",
+  headingAccent: "One game at a time.",
+  subheading:
+    "A fresh approach that transforms security awareness into a fun, competitive experience your team actually wants to play.",
+  ctaLabel: "Try for free today",
+  trialNote: "14-day free trial",
+};
+
 export const VALUE_PROPS: ValueProp[] = [
   {
     icon: "Gamepad2",
@@ -18,7 +42,6 @@ export const VALUE_PROPS: ValueProp[] = [
       "Escape-room gameplay replaces click-through slideshows. Employees actually want to play.",
   },
   {
-    
     icon: "BarChart3",
     title: "Measurable Resilience Score",
     description:
@@ -51,84 +74,10 @@ export const VALUE_PROPS: ValueProp[] = [
   },
 ];
 
-export const FEATURES: Feature[] = [
-  {
-    title: "For Security Leaders",
-    description:
-      "Get the visibility you need to prove ROI and drive security culture from the top down.",
-    items: [
-      "Resilience Score Dashboard across 6 security domains",
-      "Risk heatmaps with group-by-domain breakdowns",
-      "Automatic watchlists flagging high-risk and champion employees",
-      "Engagement analytics proving training ROI for budget justification",
-      "Compliance-ready audit logs with 7-year retention",
-      "CSV and PDF reports on demand",
-    ],
-  },
-  {
-    title: "For Training Managers",
-    description:
-      "Design, launch, and monitor training sessions with powerful tools built for scale.",
-    items: [
-      "Create facilitated, solo, or peer group sessions from one dashboard",
-      "Campaign builder for multi-step progressive training paths",
-      "Real-time monitoring with live telemetry during active sessions",
-      "Visual content editor with draft-to-publish workflow",
-      "One-click email invitations with tracking",
-      "Exportable session and campaign reports",
-    ],
-  },
-  {
-    title: "For Employees",
-    description:
-      "Participate in gamified challenges that make security knowledge second nature.",
-    items: [
-      "Access a wide variety of themed, hands-on gamemodes",
-      "Educational debriefs explaining real-world security principles",
-      "Progressive campaigns that build skills from fundamentals to advanced",
-      "Built-in voice and chat for team coordination",
-      "Solo practice mode available anytime",
-      "Real-time notifications for invites, unlocks, and results",
-    ],
-  },
-];
-
-export const ANALYTICS_CAPABILITIES = [
-  {
-    icon: "Activity",
-    title: "Org Health Pulse",
-    description: "Organization-wide averages per domain with total scored users",
-  },
-  {
-    icon: "Grid3x3",
-    title: "Risk Heatmap",
-    description: "Group × domain matrix color-coded from green to red",
-  },
-  {
-    icon: "TrendingUp",
-    title: "Engagement Scatter",
-    description: "Sessions played vs. resilience score — proves training ROI",
-  },
-  {
-    icon: "AlertTriangle",
-    title: "Watchlist",
-    description: "Auto-flagged high-risk and champion employees with recommendations",
-  },
-  {
-    icon: "Radar",
-    title: "Domain Radar Chart",
-    description: "Per-user spider chart showing strengths across all 6 domains",
-  },
-  {
-    icon: "LineChart",
-    title: "Score History",
-    description: "12-week trend line per user showing improvement trajectory",
-  },
-];
-
 export const CASE_STUDY = {
   company: "TechBridge Solutions",
-  description: "How a financial services firm turned compliance dread into measurable security culture in 12 months.",
+  description:
+    "How a financial services firm turned compliance dread into measurable security culture in 12 months.",
   problem:
     "TechBridge's annual cybersecurity compliance training was dreaded, clicked through, and forgotten. Phishing click rates sat at 34%, well above industry benchmarks.",
   solution:
@@ -144,92 +93,54 @@ export const CASE_STUDY = {
     "The CISO was able to demonstrate measurable cultural change to the board, which helped secure budget for broader security investment the following year.",
 };
 
-export const PRICING = {
-  monthly: 2,
-  annualDiscount: 0.2,
-  trialDays: 14,
-  trialUsers: 5,
-  currency: "$",
-} as const;
+// ─── Benefits (/benefits) ─────────────────────────────────────────────────────
 
-export const PRICING_FEATURES = {
-  trial: [
-    "Full platform access",
-    "All training scenarios",
-    "Team collaboration",
-    "Basic analytics",
-  ],
-  pro: [
-    "Everything in Free Trial",
-    "Unlimited users",
-    "Advanced analytics & reporting",
-    "Campaign builder",
-    "Priority support",
-    "RBAC & audit logs",
-    "GDPR compliance tools",
-  ],
-} as const;
+export const BENEFITS_PAGE = {
+  header: {
+    badge: "Benefits",
+    title: "Built for Every Role",
+    subtitle: "From the CISO setting strategy to the employee playing their first game.",
+  },
+  resilienceScore: {
+    badge: "Resilience Score",
+    title: "What is Resilience Score?",
+    subtitle:
+      "A single, trackable number that reflects how well each employee, team, and organisation understands and applies cybersecurity principles.",
+    explanation:
+      "After every training challenge, CyberEscape analyses performance across six security domains and updates each participant's resilience score. Scores roll up to team and org level, giving leaders an accurate, real-time picture of security posture — not just completion rates.",
+  },
+};
 
-export const FAQ_ITEMS: FAQItem[] = [
+export const RESILIENCE_DOMAINS: ResilienceDomain[] = [
   {
-    question: "What is CyberEscape?",
-    answer:
-      "CyberEscape is an enterprise cybersecurity awareness training platform that replaces passive slide-based training with gamified escape-room-style challenges. Employees face realistic security scenarios in timed, team-based sessions that build real, measurable security skills.",
-    category: "general",
+    icon: "Shield",
+    name: "Identity Security",
+    description: "Password hygiene, MFA usage, and account protection habits.",
   },
   {
-    question: "How does gamified training work?",
-    answer:
-      "Instead of clicking through slideshows, employees participate in timed escape-room challenges where they classify data, respond to security scenarios, and spot threats — all while collaborating with teammates via built-in voice and chat. Points, streaks, and leaderboards drive engagement.",
-    category: "general",
+    icon: "Brain",
+    name: "Social Engineering",
+    description: "Phishing recognition, pretexting awareness, and manipulation resistance.",
   },
   {
-    question: "What security topics does the platform cover?",
-    answer:
-      "The platform covers 6 security domains: Identity Security, Social Engineering, Data Protection, Network Defense, Threat Hunting, and Incident Response. Training scenarios are designed to build practical skills across all these areas.",
-    category: "general",
+    icon: "Lock",
+    name: "Data Protection",
+    description: "Handling sensitive data, classification, and safe sharing practices.",
   },
   {
-    question: "How does pricing work?",
-    answer:
-      "CyberEscape uses simple per-seat pricing at $2 per user per month. Annual commitments receive a 20% discount. We also offer a 14-day free trial for up to 5 users so you can experience the platform before committing.",
-    category: "pricing",
+    icon: "Wifi",
+    name: "Network Defense",
+    description: "Safe browsing, VPN usage, and recognising network-based threats.",
   },
   {
-    question: "What's included in the free trial?",
-    answer:
-      "The free trial gives you full platform access for 14 days with up to 5 users. You get access to all training scenarios, team collaboration features, and basic analytics — no credit card required.",
-    category: "pricing",
+    icon: "Search",
+    name: "Threat Hunting",
+    description: "Spotting indicators of compromise and reporting suspicious activity.",
   },
   {
-    question: "Are there discounts for large teams?",
-    answer:
-      "Yes — annual commitments receive a 20% discount automatically. For enterprise deployments with large user counts, contact our sales team to discuss volume pricing.",
-    category: "pricing",
-  },
-  {
-    question: "Is our data secure?",
-    answer:
-      "Absolutely. CyberEscape is built with enterprise-grade security: tenant-isolated data, role-based access control (RBAC), and immutable append-only audit logs with 7-year retention. The platform is designed for regulated industries.",
-    category: "security",
-  },
-  {
-    question: "Is CyberEscape GDPR compliant?",
-    answer:
-      "Yes. The platform includes full GDPR Article 15 data export and right-to-erasure support. All data processing is transparent, and compliance tools are built directly into the admin dashboard.",
-    category: "security",
-  },
-  {
-    question: "What are the system requirements?",
-    answer:
-      "CyberEscape runs entirely in the browser — no software installation required. It works on all modern browsers (Chrome, Firefox, Safari, Edge) on desktop and tablet devices.",
-    category: "technical",
-  },
-  {
-    question: "Can CyberEscape integrate with our existing systems?",
-    answer:
-      "The platform is designed as a standalone SaaS solution with enterprise SSO support. Contact us to discuss specific integration requirements for your organization.",
-    category: "technical",
+    icon: "AlertCircle",
+    name: "Incident Response",
+    description: "Knowing when and how to escalate, contain, and report security incidents.",
   },
 ];
 
@@ -319,8 +230,7 @@ export const ROLE_BENEFITS: RoleBenefit[] = [
       "Practice anytime with solo gamemodes",
     ],
     headline: "Security training that feels nothing like training",
-    description:
-      "Escape-room challenges that make security knowledge second nature.",
+    description: "Escape-room challenges that make security knowledge second nature.",
     items: [
       "Access a wide variety of themed, hands-on game modes",
       "Earn points, build streaks, and compete on leaderboards",
@@ -330,8 +240,200 @@ export const ROLE_BENEFITS: RoleBenefit[] = [
       "Solo practice mode available anytime without a facilitator",
     ],
     image: {
-      src: "/images/seca-resilience_score.png",
-      alt: "CyberEscape My Resilience Score dashboard showing personal domain scores and score history",
+      src: "/images/data-lockdown-triple-alert-2.png",
+      alt: "CyberEscape Data Lockdown game showing three active question panels and a timer",
     },
   },
 ];
+
+// ─── Pricing (/pricing) ───────────────────────────────────────────────────────
+
+export const PRICING_SECTION = {
+  title: "Simple, Transparent Pricing",
+  subtitle: "Start with a free trial, pay for full access.",
+  faqHeading: "Pricing Questions",
+};
+
+export const PRICING = {
+  monthly: 2,
+  annualDiscount: 0.2,
+  trialDays: 14,
+  trialUsers: 5,
+  currency: "$",
+} as const;
+
+export const PRICING_FEATURES = {
+  trial: [
+    "Full platform access",
+    "All training scenarios",
+    "Team collaboration",
+    "Basic analytics",
+  ],
+  pro: [
+    "Everything in Free Trial",
+    "Unlimited users",
+    "Advanced analytics & reporting",
+    "Campaign builder",
+    "Priority support",
+    "RBAC & audit logs",
+    "GDPR compliance tools",
+  ],
+} as const;
+
+export const PRICING_FAQ: { question: string; answer: string }[] = [
+  {
+    question: "Can I change plans later?",
+    answer:
+      "Yes, you can upgrade or switch between monthly and annual billing at any time. Annual discounts apply immediately when you switch.",
+  },
+  {
+    question: "What happens when my trial ends?",
+    answer:
+      "Your trial data is preserved for 30 days. You can upgrade to a paid plan anytime to continue where you left off.",
+  },
+  {
+    question: "Do you offer volume discounts?",
+    answer:
+      "Yes — for enterprise deployments with large user counts, contact our sales team to discuss custom pricing.",
+  },
+];
+
+// ─── About (/about) ───────────────────────────────────────────────────────────
+
+export const ABOUT_VISION = {
+  badge: "Our Vision",
+  title: "People Are the First Line of Defence",
+  paragraph1:
+    "Firewalls, endpoint tools, and SIEMs form the technical backbone of any security programme. But behind every phishing click, misconfigured file share, or accidental data leak is a person making a decision. Technology cannot fully compensate for uninformed or unprepared people. The most scalable investment an organisation can make is turning its workforce into a knowledgeable, alert, and resilient first line of defence.",
+  paragraph2: `${SITE_NAME} is not a replacement for compliance training or your existing security stack. It is the behavioural layer that sits alongside them. Whether your team already uses a phishing simulator, an LMS, or a SIEM, ${SITE_NAME} adds what those tools cannot: hands-on practice, measurable resilience, and a training experience employees actually engage with.`,
+};
+
+export const ABOUT_PILLARS: Pillar[] = [
+  {
+    icon: "Gamepad2",
+    title: "Engagement First",
+    description:
+      "We believe security training should compete with the best games for attention — not the worst compliance checkboxes. Escape-room mechanics create genuine engagement that drives voluntary participation.",
+  },
+  {
+    icon: "BarChart3",
+    title: "Measurable Outcomes",
+    description:
+      "Every interaction generates data. Our 6-domain resilience score gives security leaders the metrics they need to prove ROI, identify risks, and drive continuous improvement.",
+    link: { text: "6-domain resilience score", href: "/benefits#resilience-score" },
+  },
+  {
+    icon: "Building2",
+    title: "Enterprise Ready",
+    description:
+      "Built from day one for regulated industries. Multi-tenant isolation, RBAC, audit logs, and GDPR compliance aren't afterthoughts — they're foundational architecture decisions.",
+  },
+];
+
+export const ABOUT_ADVISORY = {
+  title: "Advisory Board",
+  subtitle: "Experienced voices guiding our product, strategy, and growth.",
+  advisors: [
+    { name: "Advisor Name", role: "Cybersecurity Advisor" },
+    { name: "Advisor Name", role: "Enterprise Strategy Advisor" },
+    { name: "Advisor Name", role: "Compliance & Regulatory Advisor" },
+    { name: "Advisor Name", role: "Learning & Development Advisor" },
+    { name: "Advisor Name", role: "Go-to-Market Advisor" },
+    { name: "Advisor Name", role: "Product Advisor" },
+  ],
+};
+
+// ─── FAQ (/faq) ───────────────────────────────────────────────────────────────
+
+export const FAQ_PAGE = {
+  title: "Frequently Asked Questions",
+  subtitle: "Everything you need to know about CyberEscape.",
+  categories: [
+    { key: "general" as const, label: "General" },
+    { key: "pricing" as const, label: "Pricing" },
+    { key: "security" as const, label: "Security & Compliance" },
+    { key: "technical" as const, label: "Technical" },
+  ],
+};
+
+export const FAQ_ITEMS: FAQItem[] = [
+  {
+    question: "What is CyberEscape?",
+    answer:
+      "CyberEscape is an enterprise cybersecurity awareness training platform that replaces passive slide-based training with gamified escape-room-style challenges. Employees face realistic security scenarios in timed, team-based sessions that build real, measurable security skills.",
+    category: "general",
+  },
+  {
+    question: "How does gamified training work?",
+    answer:
+      "Instead of clicking through slideshows, employees participate in timed escape-room challenges where they classify data, respond to security scenarios, and spot threats — all while collaborating with teammates via built-in voice and chat. Points, streaks, and leaderboards drive engagement.",
+    category: "general",
+  },
+  {
+    question: "What security topics does the platform cover?",
+    answer:
+      "The platform covers 6 security domains: Identity Security, Social Engineering, Data Protection, Network Defense, Threat Hunting, and Incident Response. Training scenarios are designed to build practical skills across all these areas.",
+    category: "general",
+  },
+  {
+    question: "How does pricing work?",
+    answer:
+      "CyberEscape uses simple per-seat pricing at $2 per user per month. Annual commitments receive a 20% discount. We also offer a 14-day free trial for up to 5 users so you can experience the platform before committing.",
+    category: "pricing",
+  },
+  {
+    question: "What's included in the free trial?",
+    answer:
+      "The free trial gives you full platform access for 14 days with up to 5 users. You get access to all training scenarios, team collaboration features, and basic analytics — no credit card required.",
+    category: "pricing",
+  },
+  {
+    question: "Are there discounts for large teams?",
+    answer:
+      "Yes — annual commitments receive a 20% discount automatically. For enterprise deployments with large user counts, contact our sales team to discuss volume pricing.",
+    category: "pricing",
+  },
+  {
+    question: "Is our data secure?",
+    answer:
+      "Absolutely. CyberEscape is built with enterprise-grade security: tenant-isolated data, role-based access control (RBAC), and immutable append-only audit logs with 7-year retention. The platform is designed for regulated industries.",
+    category: "security",
+  },
+  {
+    question: "Is CyberEscape GDPR compliant?",
+    answer:
+      "Yes. The platform includes full GDPR Article 15 data export and right-to-erasure support. All data processing is transparent, and compliance tools are built directly into the admin dashboard.",
+    category: "security",
+  },
+  {
+    question: "What are the system requirements?",
+    answer:
+      "CyberEscape runs entirely in the browser — no software installation required. It works on all modern browsers (Chrome, Firefox, Safari, Edge) on desktop and tablet devices.",
+    category: "technical",
+  },
+  {
+    question: "Can CyberEscape integrate with our existing systems?",
+    answer:
+      "The platform is designed as a standalone SaaS solution with enterprise SSO support. Contact us to discuss specific integration requirements for your organization.",
+    category: "technical",
+  },
+];
+
+// ─── Contact (/contact) ───────────────────────────────────────────────────────
+
+export const CONTACT_PAGE = {
+  title: "Get in Touch",
+  intro: "Have questions about CyberEscape? Want to see a demo? We'd love to hear from you.",
+  contacts: [
+    {
+      icon: "Mail",
+      label: "Email Us",
+      value: "contact@cyberescape.io",
+    },
+    {
+      icon: "MessageSquare",
+      label: "General Inquiries",
+      value: "We typically respond within 24 hours.",
+    },
+  ] satisfies ContactItem[],
+};

@@ -3,8 +3,33 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 
+const PERSONAL_EMAIL_DOMAINS = new Set([
+  "gmail.com", "googlemail.com",
+  "yahoo.com", "yahoo.co.uk", "yahoo.fr", "yahoo.de", "yahoo.es",
+  "yahoo.it", "yahoo.co.jp", "yahoo.com.au", "yahoo.ca",
+  "hotmail.com", "hotmail.co.uk", "hotmail.fr", "hotmail.de", "hotmail.es", "hotmail.it",
+  "outlook.com", "outlook.co.uk", "outlook.fr", "outlook.de",
+  "live.com", "live.co.uk", "live.fr",
+  "msn.com",
+  "icloud.com", "me.com", "mac.com",
+  "aol.com",
+  "protonmail.com", "proton.me",
+  "tutanota.com", "tuta.io",
+  "mail.com",
+  "yandex.com", "yandex.ru",
+  "gmx.com", "gmx.de", "gmx.net",
+]);
+
+function isPersonalEmail(email: string): boolean {
+  const domain = email.split("@")[1]?.toLowerCase();
+  return domain ? PERSONAL_EMAIL_DOMAINS.has(domain) : false;
+}
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [submitError, setSubmitError] = useState("");
 
   if (submitted) {
     return (
@@ -19,9 +44,43 @@ export default function ContactForm() {
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setSubmitError("");
+
+        const data = new FormData(e.currentTarget);
+        const email = data.get("email") as string;
+
+        if (isPersonalEmail(email)) {
+          setEmailError("Please use your work email address.");
+          return;
+        }
+
+        setLoading(true);
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: data.get("name"),
+              email,
+              company: data.get("company"),
+              subject: data.get("subject"),
+              message: data.get("message"),
+            }),
+          });
+
+          if (res.ok) {
+            setSubmitted(true);
+          } else {
+            const json = await res.json();
+            setSubmitError(json.error ?? "Something went wrong. Please try again.");
+          }
+        } catch {
+          setSubmitError("Could not reach the server. Please try again.");
+        } finally {
+          setLoading(false);
+        }
       }}
       className="space-y-5"
     >
@@ -32,6 +91,7 @@ export default function ContactForm() {
         <input
           type="text"
           id="name"
+          name="name"
           required
           className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
           placeholder="Your name"
@@ -40,24 +100,35 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-white">
-          Email <span className="text-accent">*</span>
+          Work Email <span className="text-accent">*</span>
         </label>
         <input
           type="email"
           id="email"
+          name="email"
           required
-          className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+          onChange={() => { if (emailError) setEmailError(""); }}
+          className={`w-full rounded-lg border bg-surface px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:ring-1 ${
+            emailError
+              ? "border-red-500/60 focus:border-red-500/60 focus:ring-red-500/30"
+              : "border-white/10 focus:border-accent/50 focus:ring-accent/50"
+          }`}
           placeholder="you@company.com"
         />
+        {emailError && (
+          <p className="mt-1.5 text-xs text-red-400">{emailError}</p>
+        )}
       </div>
 
       <div>
         <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-white">
-          Company
+          Company <span className="text-accent">*</span>
         </label>
         <input
           type="text"
           id="company"
+          name="company"
+          required
           className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
           placeholder="Your company"
         />
@@ -69,6 +140,7 @@ export default function ContactForm() {
         </label>
         <select
           id="subject"
+          name="subject"
           required
           className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
         >
@@ -87,6 +159,7 @@ export default function ContactForm() {
         </label>
         <textarea
           id="message"
+          name="message"
           required
           rows={5}
           className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50 resize-none"
@@ -94,8 +167,12 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button type="submit" className="w-full">
-        Send Message
+      {submitError && (
+        <p className="text-sm text-red-400">{submitError}</p>
+      )}
+
+      <Button type="submit" className="w-full" disabled={loading}>
+        {loading ? "Sending…" : "Send Message"}
       </Button>
     </form>
   );

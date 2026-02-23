@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import { Mail, MessageSquare } from "lucide-react";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/sections/ContactForm";
+import { CONTACT_PAGE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with the CyberEscape team. Request a demo, ask about pricing, or discuss your security training needs.",
+};
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Mail,
+  MessageSquare,
 };
 
 export default function ContactPage() {
@@ -17,37 +23,27 @@ export default function ContactPage() {
           {/* Info */}
           <div>
             <h1 className="text-3xl font-bold text-white md:text-4xl">
-              Get in Touch
+              {CONTACT_PAGE.title}
             </h1>
             <p className="mt-4 text-lg text-foreground">
-              Have questions about CyberEscape? Want to see a demo? We&apos;d
-              love to hear from you.
+              {CONTACT_PAGE.intro}
             </p>
 
             <div className="mt-10 space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="rounded-lg bg-accent/10 p-2">
-                  <Mail className="h-5 w-5 text-accent-light" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-white">Email Us</h3>
-                  <p className="mt-1 text-sm text-foreground">
-                    contact@cyberescape.io
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="rounded-lg bg-accent/10 p-2">
-                  <MessageSquare className="h-5 w-5 text-accent-light" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-white">General Inquiries</h3>
-                  <p className="mt-1 text-sm text-foreground">
-                    We typically respond within 24 hours.
-                  </p>
-                </div>
-              </div>
+              {CONTACT_PAGE.contacts.map((item) => {
+                const Icon = iconMap[item.icon];
+                return (
+                  <div key={item.label} className="flex items-start gap-4">
+                    <div className="rounded-lg bg-accent/10 p-2">
+                      {Icon && <Icon className="h-5 w-5 text-accent-light" />}
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-white">{item.label}</h3>
+                      <p className="mt-1 text-sm text-foreground">{item.value}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

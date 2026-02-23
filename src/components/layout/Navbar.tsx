@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { NAV_LINKS, SITE_NAME, APP_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -40,7 +40,7 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden items-center gap-3 md:flex">
-            <Button href="/sign-in" variant="secondary" size="sm">
+            <Button href={APP_URL} variant="secondary" size="sm">
               Sign In
             </Button>
             <Button href="/contact" size="sm">
@@ -78,7 +78,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <hr className="border-white/10" />
-              <Button href="/sign-in" variant="secondary" size="sm" className="w-full">
+              <Button href={APP_URL} variant="secondary" size="sm" className="w-full">
                 Sign In
               </Button>
               <Button href="/contact" size="sm" className="w-full">
