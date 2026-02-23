@@ -4,8 +4,9 @@ import { Gamepad2, BarChart3, Building2, User } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
+import FadeInSection from "@/components/ui/FadeInSection";
 import CTABanner from "@/components/sections/CTABanner";
-import { SITE_NAME, ABOUT_VISION, ABOUT_PILLARS, ABOUT_ADVISORY } from "@/lib/constants";
+import { SITE_NAME, ABOUT_VISION, ABOUT_APPROACH_HEADING, ABOUT_PILLARS, ABOUT_ADVISORY } from "@/lib/constants";
 import type { Pillar } from "@/types";
 
 export const metadata: Metadata = {
@@ -57,12 +58,13 @@ export default function AboutPage() {
       {/* Pillars */}
       <section className="bg-surface py-16 md:py-24">
         <Container>
-          <SectionHeading title="Our Approach" />
+          <SectionHeading title={ABOUT_APPROACH_HEADING} />
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {ABOUT_PILLARS.map((pillar) => {
+            {ABOUT_PILLARS.map((pillar, i) => {
               const Icon = pillarIconMap[pillar.icon];
               return (
-                <Card key={pillar.title} className="bg-surface-light text-center">
+                <FadeInSection key={pillar.title} delay={i * 100}>
+                <Card className="h-full bg-surface-light text-center">
                   <div className="mx-auto mb-4 inline-flex rounded-lg bg-accent/10 p-3">
                     {Icon && <Icon className="h-6 w-6 text-accent-light" />}
                   </div>
@@ -73,6 +75,7 @@ export default function AboutPage() {
                     <PillarDescription pillar={pillar} />
                   </p>
                 </Card>
+                </FadeInSection>
               );
             })}
           </div>
@@ -88,7 +91,8 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {ABOUT_ADVISORY.advisors.map((advisor, i) => (
-              <div key={i} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface-light p-5">
+              <FadeInSection key={i} delay={(i % 3) * 100}>
+              <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface-light p-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-white/10 bg-surface">
                   <User className="h-7 w-7 text-white/20" />
                 </div>
@@ -97,6 +101,7 @@ export default function AboutPage() {
                   <p className="text-sm text-foreground/60">{advisor.role}</p>
                 </div>
               </div>
+              </FadeInSection>
             ))}
           </div>
         </Container>

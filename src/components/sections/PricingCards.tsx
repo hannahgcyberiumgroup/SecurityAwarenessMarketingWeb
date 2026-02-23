@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
+import FadeInSection from "@/components/ui/FadeInSection";
 import { PRICING, PRICING_FEATURES, PRICING_SECTION } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -65,7 +66,8 @@ export default function PricingCards() {
         {/* Cards */}
         <div className="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">
           {/* Free Trial */}
-          <div className="flex flex-col rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+          <FadeInSection>
+          <div className="flex flex-col rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 h-full">
             <h3 className="text-lg font-semibold text-white">Free Trial</h3>
             <div className="mt-5">
               <span className="text-5xl font-bold text-white">
@@ -92,9 +94,11 @@ export default function PricingCards() {
               Start Free Trial
             </Button>
           </div>
+          </FadeInSection>
 
           {/* Pro */}
-          <div className="flex flex-col rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent-secondary/5 p-8 shadow-[0_0_50px_rgba(124,58,237,0.2)]">
+          <FadeInSection delay={100}>
+          <div className="flex flex-col rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent-secondary/5 p-8 shadow-[0_0_50px_rgba(124,58,237,0.2)] h-full">
             <h3 className="text-lg font-semibold text-white">Pro</h3>
             <div className="mt-5">
               <span className="text-5xl font-bold text-white">
@@ -127,6 +131,7 @@ export default function PricingCards() {
             </ul>
             <Button className="mt-8 w-full">Get Started</Button>
           </div>
+          </FadeInSection>
         </div>
       </Container>
     </section>

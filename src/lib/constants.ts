@@ -20,6 +20,8 @@ export const CTA_BANNER = {
   heading: "Ready to Transform Your Security Training?",
   subtext:
     "Join organizations that have turned compliance into culture with gamified security awareness training.",
+  primaryCta: "Start Free Trial",
+  secondaryCta: "Contact Sales",
 };
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
@@ -30,8 +32,25 @@ export const HERO = {
   headingAccent: "One game at a time.",
   subheading:
     "A fresh approach that transforms security awareness into a fun, competitive experience your team actually wants to play.",
-  ctaLabel: "Try for free today",
+  ctaLabel: "Start your first mission free",
   trialNote: "14-day free trial",
+};
+
+export const LEADERBOARD_SECTION = {
+  badge: "What We Do",
+  title: "Turn security awareness into your team's favourite competition",
+  body: "Forget the annual compliance slideshow. CyberEscape drops your team into real-world security scenarios — competing, collaborating, and levelling up skills that will keep your company safe.",
+  bullets: [
+    { icon: "Zap",      text: "3–5 minute escape-room missions, not hour-long modules" },
+    { icon: "Trophy",   text: "Live leaderboards that make security training genuinely competitive" },
+    { icon: "BarChart3", text: "Real-time analytics that prove security ROI to leadership" },
+  ],
+};
+
+export const VALUE_PROPS_SECTION = {
+  badge: "Why CyberEscape",
+  title: "Everything your security training is missing.",
+  subtitle: "Built from the ground up for real engagement, measurable behaviour change, and results your board will actually care about.",
 };
 
 export const VALUE_PROPS: ValueProp[] = [
@@ -75,6 +94,8 @@ export const VALUE_PROPS: ValueProp[] = [
 ];
 
 export const CASE_STUDY = {
+  label: "Case Study",
+  titleSuffix: "Turning Compliance into Culture",
   company: "TechBridge Solutions",
   description:
     "How a financial services firm turned compliance dread into measurable security culture in 12 months.",
@@ -307,6 +328,8 @@ export const ABOUT_VISION = {
     "Firewalls, endpoint tools, and SIEMs form the technical backbone of any security programme. But behind every phishing click, misconfigured file share, or accidental data leak is a person making a decision. Technology cannot fully compensate for uninformed or unprepared people. The most scalable investment an organisation can make is turning its workforce into a knowledgeable, alert, and resilient first line of defence.",
   paragraph2: `${SITE_NAME} is not a replacement for compliance training or your existing security stack. It is the behavioural layer that sits alongside them. Whether your team already uses a phishing simulator, an LMS, or a SIEM, ${SITE_NAME} adds what those tools cannot: hands-on practice, measurable resilience, and a training experience employees actually engage with.`,
 };
+
+export const ABOUT_APPROACH_HEADING = "Our Approach";
 
 export const ABOUT_PILLARS: Pillar[] = [
   {

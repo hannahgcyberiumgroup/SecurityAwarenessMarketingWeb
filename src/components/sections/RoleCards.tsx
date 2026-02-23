@@ -1,4 +1,5 @@
 import { Shield, ClipboardCheck, Users, Gamepad2, Check, ChevronDown } from "lucide-react";
+import FadeInSection from "@/components/ui/FadeInSection";
 import { ROLE_BENEFITS } from "@/lib/constants";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -13,11 +14,12 @@ export default function RoleCards() {
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {ROLE_BENEFITS.map((role) => {
+          {ROLE_BENEFITS.map((role, i) => {
             const Icon = iconMap[role.icon];
             return (
+              <FadeInSection key={role.id} delay={i * 100}>
               <a
-                key={role.id}
+                href={`#${role.id}`}
                 href={`#${role.id}`}
                 className="group flex flex-col rounded-2xl border border-white/10 bg-surface-light p-6 transition-colors duration-300 hover:border-accent/40 hover:bg-surface hover:shadow-[0_0_30px_rgba(124,58,237,0.15)]"
               >
@@ -41,6 +43,7 @@ export default function RoleCards() {
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
                 </div>
               </a>
+              </FadeInSection>
             );
           })}
         </div>

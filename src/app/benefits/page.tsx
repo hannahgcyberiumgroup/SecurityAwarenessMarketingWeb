@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Check, Shield, Brain, Lock, Wifi, Search, AlertCircle } from "lucide-react";
+import { Shield, Brain, Lock, Wifi, Search, AlertCircle, ShieldCheck, ClipboardList, Target, Zap } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import FadeInSection from "@/components/ui/FadeInSection";
 import RoleCards from "@/components/sections/RoleCards";
 import CTABanner from "@/components/sections/CTABanner";
 import { BENEFITS_PAGE, RESILIENCE_DOMAINS, ROLE_BENEFITS } from "@/lib/constants";
@@ -20,6 +21,13 @@ const domainIconMap: Record<string, React.ComponentType<{ className?: string }>>
   Wifi,
   Search,
   AlertCircle,
+};
+
+const roleItemIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Shield: ShieldCheck,
+  ClipboardCheck: ClipboardList,
+  Users: Target,
+  Gamepad2: Zap,
 };
 
 export default function BenefitsPage() {
@@ -53,6 +61,7 @@ export default function BenefitsPage() {
             className="scroll-mt-20 py-16 md:py-24"
           >
             <Container>
+              <FadeInSection threshold={0.1}>
               <div
                 className={`flex flex-col items-center gap-12 lg:flex-row ${
                   i % 2 === 1 ? "lg:flex-row-reverse" : ""
@@ -68,12 +77,17 @@ export default function BenefitsPage() {
                   </h2>
                   <p className="mt-4 text-foreground/70">{role.description}</p>
                   <ul className="mt-6 space-y-3">
-                    {role.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                        <span className="text-sm text-foreground/80">{item}</span>
-                      </li>
-                    ))}
+                    {role.items.map((item) => {
+                      const ItemIcon = roleItemIconMap[role.icon];
+                      return (
+                        <li key={item} className="flex items-start gap-3">
+                          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-accent/20 to-accent-secondary/10">
+                            {ItemIcon && <ItemIcon className="h-3 w-3 text-accent-light" />}
+                          </span>
+                          <span className="text-sm text-foreground/80">{item}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
@@ -90,6 +104,7 @@ export default function BenefitsPage() {
                   </div>
                 </div>
               </div>
+              </FadeInSection>
             </Container>
           </section>
         ))}
@@ -113,11 +128,11 @@ export default function BenefitsPage() {
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {RESILIENCE_DOMAINS.map((domain) => {
+            {RESILIENCE_DOMAINS.map((domain, i) => {
               const Icon = domainIconMap[domain.icon];
               return (
+                <FadeInSection key={domain.name} delay={(i % 3) * 100}>
                 <div
-                  key={domain.name}
                   className="rounded-2xl border border-white/10 bg-surface-light p-6"
                 >
                   <div className="mb-4 inline-flex rounded-xl bg-gradient-to-br from-accent/20 to-accent-secondary/10 p-3">
@@ -126,6 +141,7 @@ export default function BenefitsPage() {
                   <h3 className="font-semibold text-white">{domain.name}</h3>
                   <p className="mt-2 text-sm text-foreground/70">{domain.description}</p>
                 </div>
+                </FadeInSection>
               );
             })}
           </div>

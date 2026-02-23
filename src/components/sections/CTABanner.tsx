@@ -21,10 +21,10 @@ export default function CTABanner() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/pricing" size="lg">
-            Start Free Trial
+            {CTA_BANNER.primaryCta}
           </Button>
           <Button href="/contact" variant="secondary" size="lg">
-            Contact Sales
+            {CTA_BANNER.secondaryCta}
           </Button>
         </div>
       </Container>
