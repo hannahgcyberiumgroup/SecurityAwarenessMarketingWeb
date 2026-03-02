@@ -41,7 +41,7 @@ export const LEADERBOARD_SECTION = {
   title: "Turn security awareness into your team's favourite competition",
   body: "Forget the annual compliance slideshow. CyberEscape drops your team into hands-on security scenarios — competing, collaborating, and levelling up skills that will keep your company safe.",
   bullets: [
-    { icon: "Zap",      text: "3–5 minute escape-room missions, not hour-long modules" },
+    { icon: "Zap",      text: "Short gamified missions, not hour-long text modules" },
     { icon: "Trophy",   text: "Live leaderboards that make security training genuinely competitive" },
     { icon: "BarChart3", text: "Real-time analytics that prove security ROI to leadership" },
   ],
@@ -271,61 +271,69 @@ export const ROLE_BENEFITS: RoleBenefit[] = [
 
 export const PRICING_SECTION = {
   title: "Simple, Transparent Pricing",
-  subtitle: "Free to start, transparent as you grow.",
+  subtitle: "All plans billed annually in CAD.",
   faqHeading: "Pricing Questions",
 };
 
 export const PRICING = {
-  currency: "$",
-  annualDiscount: 0.2,
+  currency: "CAD",
   free: {
     maxUsers: 5,
     trialDays: 14,
   },
   pro: {
-    monthly: 2,
+    minPerSeat: 8,
+    maxPerSeat: 18,
   },
 } as const;
 
 export const PRICING_FEATURES = {
   free: [
     "Up to 5 users",
-    "All training scenarios",
+    "Single game access",
     "Team collaboration",
-    "Basic analytics"
+    "Email support"
   ],
   pro: [
-    "Unlimited users",
-    "All training scenarios",
-    "Advanced analytics & reporting",
-    "Campaign builder",
-    "RBAC & audit logs",
-    "GDPR compliance tools",
+    "Access all games",
+    "Gamification engine & leaderboards",
+    "Behavioural risk scoring per user",
+    "SSO (Microsoft, Google)",
+    "Priority support + CSM"
   ],
   enterprise: [
     "Everything in Pro",
-    "Custom SSO / SAML integration",
-    "Dedicated customer success manager",
-    "Custom training content",
-    "Volume pricing",
+    "Customizable training content",
+    "Executive / board reporting suite",
+    "Custom pricing model",
   ],
 } as const;
 
+export const PRO_PRICING_TIERS: { seats: string; price: number | null }[] = [
+  { seats: "50–250",       price: 18 },
+  { seats: "251–500",      price: 16 },
+  { seats: "501–1,000",    price: 13 },
+  { seats: "1,001–2,500",  price: 11 },
+  { seats: "2,501–5,000",  price: 9  },
+  { seats: "5,001–10,000", price: 8  },
+  { seats: "10,000+",      price: null },
+];
+
 export const PRICING_FAQ: { question: string; answer: string }[] = [
   {
-    question: "Can I change plans later?",
+    question: "Can I upgrade or change plans?",
     answer:
-      "Yes, you can upgrade or switch between monthly and annual billing at any time. Annual discounts apply immediately when you switch.",
+      "Yes — you can upgrade from Free to Pro or move to an Enterprise plan at any time. Pro plans are billed annually; your new rate takes effect at the start of the next billing period.",
   },
   {
-    question: "What happens when my trial ends?",
+    question: "What happens when my free trial ends?",
     answer:
-      "Your trial data is preserved for 30 days. You can upgrade to a paid plan anytime to continue where you left off.",
+      "Your trial data is preserved for 30 days after the trial expires. You can upgrade to a Pro or Enterprise plan at any time to continue where you left off.",
   },
   {
-    question: "Do you offer volume discounts?",
+    question: "How does Pro seat pricing work?",
     answer:
-      "Yes — for enterprise deployments with large user counts, contact our sales team to discuss custom pricing.",
+      "Pro pricing is volume-based and billed annually in CAD. The per-seat rate decreases as your team grows — from $18/seat for 50–250 users down to $8/seat for 5,001–10,000 users. For teams over 10,000, contact us for a custom quote.",
   },
 ];
 
@@ -411,19 +419,19 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How does pricing work?",
     answer:
-      "CyberEscape offers three tiers: a 14-day free trial for up to 5 users, a Pro plan at $2 per user per month (or $1.60 with an annual commitment), and Enterprise with custom pricing for large organisations.",
+      "CyberEscape offers three tiers: a free 14-day trial for up to 5 users, a Pro plan with volume-based annual pricing in CAD (starting at $18/seat for 50–250 users, down to $8/seat for large teams), and Enterprise with custom pricing. All paid plans are billed annually.",
     category: "pricing",
   },
   {
     question: "What's included in the free trial?",
     answer:
-      "The free trial supports up to 5 users for 14 days with full access to all training scenarios, team collaboration features, and basic analytics — no credit card required.",
+      "The free trial supports up to 5 users for 14 days — no credit card required. You get access to a sample game, team collaboration features, and basic analytics.",
     category: "pricing",
   },
   {
-    question: "Are there discounts for large teams?",
+    question: "Does the per-seat price decrease for larger teams?",
     answer:
-      "Yes — annual commitments on the Pro plan receive a 20% discount automatically. For enterprise deployments with large user counts, contact our sales team to discuss volume pricing and custom terms.",
+      "Yes — Pro pricing is volume-based. The rate drops from $18/seat at 50–250 users to $8/seat at 5,001–10,000 users. For teams over 10,000, contact us for a custom quote.",
     category: "pricing",
   },
   {

@@ -27,7 +27,6 @@
     /* ===== Print ===== */
     @page {
       size: A4;
-      /* left: text area, right: wide annotation margin */
       margin: 22mm 58mm 22mm 22mm;
     }
 
@@ -144,16 +143,6 @@
       border-bottom: none;
     }
 
-    .el-type {
-      display: block;
-      font-size: 7.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: #bbb;
-      margin-bottom: 4px;
-    }
-
     /* Text styles */
     .t-hero {
       font-size: 18pt;
@@ -215,7 +204,7 @@
     /* ===== Pricing cards ===== */
     .pricing-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1em;
       margin-top: 0.5em;
     }
@@ -292,19 +281,19 @@
     <div class="cover">
       <div class="cover-eyebrow">Content Review Document</div>
       <div class="cover-title">CyberEscape<br>Marketing Website</div>
-      <div class="cover-meta">February 2026 &nbsp;&middot;&nbsp; 6 pages</div>
+      <div class="cover-meta">February 2026</div>
     </div>
 
     <!-- Table of contents (screen only) -->
     <div class="toc no-print">
       <h2>Pages</h2>
       <ol>
-        <li><a href="#home">Home &mdash; /</a></li>
-        <li><a href="#benefits">Benefits &mdash; /benefits</a></li>
-        <li><a href="#pricing">Pricing &mdash; /pricing</a></li>
-        <li><a href="#about">About &mdash; /about</a></li>
-        <li><a href="#faq">FAQ &mdash; /faq</a></li>
-        <li><a href="#contact">Contact &mdash; /contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ol>
     </div>
 
@@ -319,54 +308,49 @@
         <hr class="page-rule" />
       </div>
 
-      <!-- Hero -->
       <div class="section-label">Hero</div>
 
       <div class="el">
-        <span class="el-type">Badge</span>
-        <span class="t-badge">CyberEscape</span>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-hero">Level up your defense. One game at a time.</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subheading</span>
         <p class="t-body">A fresh approach that transforms security awareness into a fun, competitive experience your team actually wants to play.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">CTA label</span>
-        <p class="t-body">Try for free today</p>
+        <p class="t-small">Start your first mission free &nbsp;&middot;&nbsp; 14-day free trial</p>
+      </div>
+
+      <div class="section-label">What We Do</div>
+
+      <div class="el">
+        <div class="t-h2">Turn security awareness into your team's favourite competition</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Buttons</span>
-        <p class="t-body">Request a Demo &nbsp;&middot;&nbsp; Sign In</p>
+        <p class="t-body">Forget the annual compliance slideshow. CyberEscape drops your team into hands-on security scenarios &mdash; competing, collaborating, and levelling up skills that will keep your company safe.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Note below buttons</span>
-        <p class="t-small">14-day free trial</p>
+        <ul>
+          <li>3&ndash;5 minute escape-room missions, not hour-long modules</li>
+          <li>Live leaderboards that make security training genuinely competitive</li>
+          <li>Real-time analytics that prove security ROI to leadership</li>
+        </ul>
       </div>
 
-      <!-- Value Props -->
       <div class="section-label">Why CyberEscape</div>
 
       <div class="el">
-        <span class="el-type">Section heading</span>
-        <div class="t-h2">Security Training That Actually Works</div>
+        <div class="t-h2">Everything your security training is missing.</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Section subtitle</span>
-        <p class="t-body">Built from the ground up to drive engagement, measure outcomes, and scale across your organization.</p>
+        <p class="t-body">Built from the ground up for real engagement, measurable behaviour change, and results your board will actually care about.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Value prop cards (6)</span>
         <div class="card-grid">
           <div class="card-box">
             <div class="card-box-title">Engagement Over Compliance</div>
@@ -395,36 +379,29 @@
         </div>
       </div>
 
-      <!-- Case Study -->
       <div class="section-label">Case Study</div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h3">TechBridge Solutions &mdash; Turning Compliance into Culture</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Description</span>
         <p class="t-body">How a financial services firm turned compliance dread into measurable security culture in 12 months.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Problem</span>
         <p class="t-body">TechBridge's annual cybersecurity compliance training was dreaded, clicked through, and forgotten. Phishing click rates sat at 34%, well above industry benchmarks.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Solution</span>
         <p class="t-body">They replaced their legacy LMS with short 3&ndash;5 minute scenario-based challenges, leaderboards, team competitions, and a points system with real incentives, delivered monthly instead of annually.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Results</span>
         <p class="t-body">After 12 months, phishing click rates fell to 8%, completion jumped from 55% to 94%, and incident reporting increased by 60% as employees engaged voluntarily rather than just meeting a deadline.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Stats</span>
         <div class="stat-row">
           <div>
             <div class="stat-value">34% &rarr; 8%</div>
@@ -442,25 +419,20 @@
       </div>
 
       <div class="el">
-        <span class="el-type">Closing quote</span>
         <p class="bq">The CISO was able to demonstrate measurable cultural change to the board, which helped secure budget for broader security investment the following year.</p>
       </div>
 
-      <!-- CTA Banner -->
       <div class="section-label">CTA Banner &mdash; appears on every page</div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">Ready to Transform Your Security Training?</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subtext</span>
         <p class="t-body">Join organizations that have turned compliance into culture with gamified security awareness training.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Buttons</span>
         <p class="t-body">Start Free Trial &nbsp;&middot;&nbsp; Contact Sales</p>
       </div>
     </div>
@@ -479,25 +451,17 @@
       <div class="section-label">Page Header</div>
 
       <div class="el">
-        <span class="el-type">Badge</span>
-        <span class="t-badge">Benefits</span>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">Built for Every Role</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subtitle</span>
         <p class="t-body">From the CISO setting strategy to the employee playing their first game.</p>
       </div>
 
-      <!-- Role overview cards -->
       <div class="section-label">Role Overview Cards</div>
 
       <div class="el">
-        <span class="el-type">CISO &mdash; card bullets</span>
+        <p class="t-small" style="font-weight:600; margin-bottom: 4px;">CISO</p>
         <ul>
           <li>Org-wide resilience scores across 6 security domains</li>
           <li>Identify high-risk employees before incidents happen</li>
@@ -506,7 +470,7 @@
       </div>
 
       <div class="el">
-        <span class="el-type">GRC Manager &mdash; card bullets</span>
+        <p class="t-small" style="font-weight:600; margin-bottom: 4px;">GRC Manager</p>
         <ul>
           <li>Audit-ready logs with 7-year retention</li>
           <li>GDPR data export and right-to-erasure built in</li>
@@ -515,7 +479,7 @@
       </div>
 
       <div class="el">
-        <span class="el-type">HR / Training Manager &mdash; card bullets</span>
+        <p class="t-small" style="font-weight:600; margin-bottom: 4px;">HR / Training Manager</p>
         <ul>
           <li>Replace annual slideshows with short monthly challenges</li>
           <li>Build progressive campaigns that unlock automatically</li>
@@ -524,7 +488,7 @@
       </div>
 
       <div class="el">
-        <span class="el-type">Employee &mdash; card bullets</span>
+        <p class="t-small" style="font-weight:600; margin-bottom: 4px;">Employee</p>
         <ul>
           <li>Short escape-room challenges instead of hour-long slideshows</li>
           <li>Compete with teammates and climb the leaderboard</li>
@@ -532,31 +496,105 @@
         </ul>
       </div>
 
-      <!-- Resilience Score explainer -->
-      <div class="section-label">What is Resilience Score?</div>
+      <div class="section-label">Role Detail &mdash; CISO</div>
 
       <div class="el">
-        <span class="el-type">Badge</span>
-        <span class="t-badge">Resilience Score</span>
+        <div class="t-h3">Strategic visibility into your organisation's security posture</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
+        <p class="t-body">Give security leadership the data needed to make decisions, justify budget, and demonstrate progress over time.</p>
+      </div>
+
+      <div class="el">
+        <ul>
+          <li>Resilience Score Dashboard aggregated across 6 domains: Identity, Social Engineering, Data Protection, Network Defense, Threat Hunting, and Incident Response</li>
+          <li>Risk heatmap showing group-by-domain breakdowns at a glance</li>
+          <li>Watchlist automatically flags high-risk employees and surfaces remediation recommendations</li>
+          <li>Engagement analytics proving training ROI for board and budget presentations</li>
+          <li>Compliance-ready audit logs with 7-year retention</li>
+          <li>On-demand CSV and PDF reports covering sessions, campaigns, and resilience score trends</li>
+        </ul>
+      </div>
+
+      <div class="section-label">Role Detail &mdash; GRC Manager</div>
+
+      <div class="el">
+        <div class="t-h3">Compliance coverage you can prove, not just claim</div>
+      </div>
+
+      <div class="el">
+        <p class="t-body">Built for regulated industries from day one, with the audit trail and controls to back it up.</p>
+      </div>
+
+      <div class="el">
+        <ul>
+          <li>Immutable append-only audit logs covering all user and admin activity</li>
+          <li>7-year log retention to meet regulatory requirements</li>
+          <li>GDPR Article 15 data export and right-to-erasure support</li>
+          <li>Role-based access control for secure admin delegation</li>
+          <li>Audit Extract and GDPR Export reports generated on demand</li>
+          <li>Training completion tracking per user, team, and campaign for compliance reporting</li>
+        </ul>
+      </div>
+
+      <div class="section-label">Role Detail &mdash; HR / Training Manager</div>
+
+      <div class="el">
+        <div class="t-h3">Training programmes that actually get completed</div>
+      </div>
+
+      <div class="el">
+        <p class="t-body">Tools to design, schedule, and track security training at scale, without chasing employees to finish.</p>
+      </div>
+
+      <div class="el">
+        <ul>
+          <li>Campaign builder for multi-step training paths that unlock automatically on completion</li>
+          <li>Create facilitated team sessions, solo practice, or peer group sessions from one dashboard</li>
+          <li>Real-time monitoring with live telemetry during active sessions</li>
+          <li>Visual content editor with a draft-to-publish workflow for managing training content</li>
+          <li>One-click email invitations with delivery tracking per session</li>
+          <li>Exportable session summaries and campaign progress reports</li>
+        </ul>
+      </div>
+
+      <div class="section-label">Role Detail &mdash; Employee</div>
+
+      <div class="el">
+        <div class="t-h3">Security training that feels nothing like training</div>
+      </div>
+
+      <div class="el">
+        <p class="t-body">Escape-room challenges that make security knowledge second nature.</p>
+      </div>
+
+      <div class="el">
+        <ul>
+          <li>Access a wide variety of themed, hands-on game modes</li>
+          <li>Earn points, build streaks, and compete on leaderboards</li>
+          <li>Built-in voice and chat for team coordination during gameplay</li>
+          <li>Progressive campaigns that build skills from fundamentals to advanced scenarios</li>
+          <li>Educational debriefs after every challenge explaining real-world security principles</li>
+          <li>Solo practice mode available anytime without a facilitator</li>
+        </ul>
+      </div>
+
+      <div class="section-label">What is Resilience Score?</div>
+
+      <div class="el">
         <div class="t-h2">What is Resilience Score?</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subtitle</span>
         <p class="t-body">A single, trackable number that reflects how well each employee, team, and organisation understands and applies cybersecurity principles.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Explanation paragraph</span>
         <p class="t-body">After every training challenge, CyberEscape analyses performance across six security domains and updates each participant's resilience score. Scores roll up to team and org level, giving leaders an accurate, real-time picture of security posture &mdash; not just completion rates.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Six domain cards</span>
         <div class="card-grid">
           <div class="card-box">
             <div class="card-box-title">Identity Security</div>
@@ -584,103 +622,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Role detail sections -->
-      <div class="section-label">Role Detail &mdash; CISO</div>
-
-      <div class="el">
-        <span class="el-type">Headline</span>
-        <div class="t-h3">Strategic visibility into your organisation's security posture</div>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Description</span>
-        <p class="t-body">Give security leadership the data needed to make decisions, justify budget, and demonstrate progress over time.</p>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Feature list</span>
-        <ul>
-          <li>Resilience Score Dashboard aggregated across 6 domains: Identity, Social Engineering, Data Protection, Network Defense, Threat Hunting, and Incident Response</li>
-          <li>Risk heatmap showing group-by-domain breakdowns at a glance</li>
-          <li>Watchlist automatically flags high-risk employees and surfaces remediation recommendations</li>
-          <li>Engagement analytics proving training ROI for board and budget presentations</li>
-          <li>Compliance-ready audit logs with 7-year retention</li>
-          <li>On-demand CSV and PDF reports covering sessions, campaigns, and resilience score trends</li>
-        </ul>
-      </div>
-
-      <div class="section-label">Role Detail &mdash; GRC Manager</div>
-
-      <div class="el">
-        <span class="el-type">Headline</span>
-        <div class="t-h3">Compliance coverage you can prove, not just claim</div>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Description</span>
-        <p class="t-body">Built for regulated industries from day one, with the audit trail and controls to back it up.</p>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Feature list</span>
-        <ul>
-          <li>Immutable append-only audit logs covering all user and admin activity</li>
-          <li>7-year log retention to meet regulatory requirements</li>
-          <li>GDPR Article 15 data export and right-to-erasure support</li>
-          <li>Role-based access control for secure admin delegation</li>
-          <li>Audit Extract and GDPR Export reports generated on demand</li>
-          <li>Training completion tracking per user, team, and campaign for compliance reporting</li>
-        </ul>
-      </div>
-
-      <div class="section-label">Role Detail &mdash; HR / Training Manager</div>
-
-      <div class="el">
-        <span class="el-type">Headline</span>
-        <div class="t-h3">Training programmes that actually get completed</div>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Description</span>
-        <p class="t-body">Tools to design, schedule, and track security training at scale, without chasing employees to finish.</p>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Feature list</span>
-        <ul>
-          <li>Campaign builder for multi-step training paths that unlock automatically on completion</li>
-          <li>Create facilitated team sessions, solo practice, or peer group sessions from one dashboard</li>
-          <li>Real-time monitoring with live telemetry during active sessions</li>
-          <li>Visual content editor with a draft-to-publish workflow for managing training content</li>
-          <li>One-click email invitations with delivery tracking per session</li>
-          <li>Exportable session summaries and campaign progress reports</li>
-        </ul>
-      </div>
-
-      <div class="section-label">Role Detail &mdash; Employee</div>
-
-      <div class="el">
-        <span class="el-type">Headline</span>
-        <div class="t-h3">Security training that feels nothing like training</div>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Description</span>
-        <p class="t-body">Escape-room challenges that make security knowledge second nature.</p>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Feature list</span>
-        <ul>
-          <li>Access a wide variety of themed, hands-on game modes</li>
-          <li>Earn points, build streaks, and compete on leaderboards</li>
-          <li>Built-in voice and chat for team coordination during gameplay</li>
-          <li>Progressive campaigns that build skills from fundamentals to advanced scenarios</li>
-          <li>Educational debriefs after every challenge explaining real-world security principles</li>
-          <li>Solo practice mode available anytime without a facilitator</li>
-        </ul>
-      </div>
     </div>
 
 
@@ -697,49 +638,52 @@
       <div class="section-label">Pricing Cards</div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">Simple, Transparent Pricing</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subtitle</span>
-        <p class="t-body">Start with a free trial, pay for full access.</p>
+        <p class="t-body">All plans billed annually in CAD.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Toggle labels</span>
-        <p class="t-body">Monthly &nbsp;&middot;&nbsp; Annual &mdash; Save 20%</p>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Plan cards</span>
         <div class="pricing-grid">
           <div class="pricing-box">
-            <div class="pricing-name">Free Trial</div>
+            <div class="pricing-name">Free</div>
             <div class="pricing-price">$0 <span>/ 14 days</span></div>
             <div class="pricing-note">Up to 5 users &middot; No credit card required</div>
             <ul>
-              <li>Full platform access</li>
-              <li>All training scenarios</li>
+              <li>Up to 5 users</li>
+              <li>Single game access</li>
               <li>Team collaboration</li>
-              <li>Basic analytics</li>
+              <li>Email support</li>
             </ul>
             <div style="margin-top: 10px; font-size: 9pt; font-weight: 600; border: 1px solid #ccc; text-align: center; padding: 5px; border-radius: 4px;">Start Free Trial</div>
           </div>
-          <div class="pricing-box">
+          <div class="pricing-box" style="border-color: #7c3aed;">
+            <div style="font-size: 7.5pt; font-weight: 700; color: #7c3aed; margin-bottom: 4px;">&#9733; Most Popular</div>
             <div class="pricing-name">Pro</div>
-            <div class="pricing-price">$2 <span>/ user / month</span></div>
-            <div class="pricing-note">$1.60/user/month billed annually &middot; Unlimited users</div>
+            <div class="pricing-price">CAD $8–18 <span>/ seat / year</span></div>
+            <div class="pricing-note">Minimum 50 users &middot; Billed annually</div>
             <ul>
-              <li>Everything in Free Trial</li>
-              <li>Unlimited users</li>
-              <li>Advanced analytics &amp; reporting</li>
-              <li>Campaign builder</li>
-              <li>Priority support</li>
-              <li>RBAC &amp; audit logs</li>
-              <li>GDPR compliance tools</li>
+              <li>Access all games</li>
+              <li>Gamification engine &amp; leaderboards</li>
+              <li>Behavioural risk scoring per user</li>
+              <li>SSO (Microsoft, Google)</li>
+              <li>Priority support + CSM</li>
             </ul>
-            <div style="margin-top: 10px; font-size: 9pt; font-weight: 600; border: 1px solid #ccc; text-align: center; padding: 5px; border-radius: 4px;">Get Started</div>
+            <div style="margin-top: 10px; font-size: 9pt; font-weight: 600; background: #7c3aed; color: white; text-align: center; padding: 5px; border-radius: 4px;">Get Started</div>
+          </div>
+          <div class="pricing-box">
+            <div class="pricing-name">Enterprise</div>
+            <div class="pricing-price" style="font-size: 14pt;">Custom</div>
+            <div class="pricing-note">Tailored for large organisations &amp; regulated industries</div>
+            <ul>
+              <li>Everything in Pro</li>
+              <li>Customizable training content</li>
+              <li>Executive / board reporting suite</li>
+              <li>Custom pricing model</li>
+            </ul>
+            <div style="margin-top: 10px; font-size: 9pt; font-weight: 600; border: 1px solid #ccc; text-align: center; padding: 5px; border-radius: 4px;">Contact Sales</div>
           </div>
         </div>
       </div>
@@ -747,23 +691,18 @@
       <div class="section-label">Pricing FAQ</div>
 
       <div class="el">
-        <span class="el-type">Section heading</span>
-        <p style="font-weight: 600; margin: 0;">Pricing Questions</p>
+        <div class="qa-q">Can I upgrade or change plans?</div>
+        <p class="qa-a">Yes &mdash; you can upgrade from Free to Pro or move to an Enterprise plan at any time. Pro plans are billed annually; your new rate takes effect at the start of the next billing period.</p>
       </div>
 
       <div class="el">
-        <div class="qa-q">Can I change plans later?</div>
-        <p class="qa-a">Yes, you can upgrade or switch between monthly and annual billing at any time. Annual discounts apply immediately when you switch.</p>
+        <div class="qa-q">What happens when my free trial ends?</div>
+        <p class="qa-a">Your trial data is preserved for 30 days after the trial expires. You can upgrade to a Pro or Enterprise plan at any time to continue where you left off.</p>
       </div>
 
       <div class="el">
-        <div class="qa-q">What happens when my trial ends?</div>
-        <p class="qa-a">Your trial data is preserved for 30 days. You can upgrade to a paid plan anytime to continue where you left off.</p>
-      </div>
-
-      <div class="el">
-        <div class="qa-q">Do you offer volume discounts?</div>
-        <p class="qa-a">Yes &mdash; for enterprise deployments with large user counts, contact our sales team to discuss custom pricing.</p>
+        <div class="qa-q">How does Pro seat pricing work?</div>
+        <p class="qa-a">Pro pricing is volume-based and billed annually in CAD. The per-seat rate decreases as your team grows &mdash; from $18/seat for 50&ndash;250 users down to $8/seat for 5,001&ndash;10,000 users. For teams over 10,000, contact us for a custom quote.</p>
       </div>
     </div>
 
@@ -781,41 +720,30 @@
       <div class="section-label">Our Vision</div>
 
       <div class="el">
-        <span class="el-type">Badge</span>
-        <span class="t-badge">Our Vision</span>
-      </div>
-
-      <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">People Are the First Line of Defence</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Paragraph 1 &mdash; people as first line of defence</span>
         <p class="t-body">Firewalls, endpoint tools, and SIEMs form the technical backbone of any security programme. But behind every phishing click, misconfigured file share, or accidental data leak is a person making a decision. Technology cannot fully compensate for uninformed or unprepared people. The most scalable investment an organisation can make is turning its workforce into a knowledgeable, alert, and resilient first line of defence.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Paragraph 2 &mdash; co-existing with other platforms</span>
         <p class="t-body">CyberEscape is not a replacement for compliance training or your existing security stack. It is the behavioural layer that sits alongside them. Whether your team already uses a phishing simulator, an LMS, or a SIEM, CyberEscape adds what those tools cannot: hands-on practice, measurable resilience, and a training experience employees actually engage with.</p>
       </div>
 
       <div class="section-label">Our Approach</div>
 
       <div class="el">
-        <span class="el-type">Pillar 1</span>
         <div class="t-h3">Engagement First</div>
         <p class="t-body" style="margin-top: 4px;">We believe security training should compete with the best games for attention &mdash; not the worst compliance checkboxes. Escape-room mechanics create genuine engagement that drives voluntary participation.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Pillar 2</span>
         <div class="t-h3">Measurable Outcomes</div>
         <p class="t-body" style="margin-top: 4px;">Every interaction generates data. Our 6-domain resilience score gives security leaders the metrics they need to prove ROI, identify risks, and drive continuous improvement.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Pillar 3</span>
         <div class="t-h3">Enterprise Ready</div>
         <p class="t-body" style="margin-top: 4px;">Built from day one for regulated industries. Multi-tenant isolation, RBAC, audit logs, and GDPR compliance aren't afterthoughts &mdash; they're foundational architecture decisions.</p>
       </div>
@@ -823,17 +751,14 @@
       <div class="section-label">Advisory Board</div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">Advisory Board</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subtitle</span>
         <p class="t-body">Experienced voices guiding our product, strategy, and growth.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Placeholder roles (6)</span>
         <ul>
           <li>Cybersecurity Advisor</li>
           <li>Enterprise Strategy Advisor</li>
@@ -857,12 +782,10 @@
       </div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">Frequently Asked Questions</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Subtitle</span>
         <p class="t-body">Everything you need to know about CyberEscape.</p>
       </div>
 
@@ -887,17 +810,17 @@
 
       <div class="el">
         <div class="qa-q">How does pricing work?</div>
-        <p class="qa-a">CyberEscape uses simple per-seat pricing at $2 per user per month. Annual commitments receive a 20% discount. We also offer a 14-day free trial for up to 5 users so you can experience the platform before committing.</p>
+        <p class="qa-a">CyberEscape offers three tiers: a free 14-day trial for up to 5 users, a Pro plan with volume-based annual pricing in CAD (starting at $18/seat for 50&ndash;250 users, down to $8/seat for large teams), and Enterprise with custom pricing. All paid plans are billed annually.</p>
       </div>
 
       <div class="el">
         <div class="qa-q">What's included in the free trial?</div>
-        <p class="qa-a">The free trial gives you full platform access for 14 days with up to 5 users. You get access to all training scenarios, team collaboration features, and basic analytics &mdash; no credit card required.</p>
+        <p class="qa-a">The free trial supports up to 5 users for 14 days &mdash; no credit card required. You get access to a sample game, team collaboration features, and basic analytics.</p>
       </div>
 
       <div class="el">
-        <div class="qa-q">Are there discounts for large teams?</div>
-        <p class="qa-a">Yes &mdash; annual commitments receive a 20% discount automatically. For enterprise deployments with large user counts, contact our sales team to discuss volume pricing.</p>
+        <div class="qa-q">Does the per-seat price decrease for larger teams?</div>
+        <p class="qa-a">Yes &mdash; Pro pricing is volume-based. The rate drops from $18/seat at 50&ndash;250 users to $8/seat at 5,001&ndash;10,000 users. For teams over 10,000, contact us for a custom quote.</p>
       </div>
 
       <div class="section-label">Security &amp; Compliance</div>
@@ -939,29 +862,24 @@
       <div class="section-label">Contact Info</div>
 
       <div class="el">
-        <span class="el-type">Heading</span>
         <div class="t-h2">Get in Touch</div>
       </div>
 
       <div class="el">
-        <span class="el-type">Intro</span>
         <p class="t-body">Have questions about CyberEscape? Want to see a demo? We'd love to hear from you.</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Email</span>
         <p class="t-body"><strong>Email Us</strong><br>contact@cyberescape.io</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Response time</span>
         <p class="t-body"><strong>General Inquiries</strong><br>We typically respond within 24 hours.</p>
       </div>
 
       <div class="section-label">Contact Form</div>
 
       <div class="el">
-        <span class="el-type">Form fields</span>
         <ul>
           <li>Name (required)</li>
           <li>Email (required)</li>
@@ -972,12 +890,10 @@
       </div>
 
       <div class="el">
-        <span class="el-type">Submit button</span>
-        <p class="t-body">Send Message</p>
+        <p class="t-body">Submit: Send Message</p>
       </div>
 
       <div class="el">
-        <span class="el-type">Success message (shown after submit)</span>
         <p class="t-body"><strong>Thank You!</strong><br>We've received your message and will get back to you shortly.</p>
       </div>
     </div>
